@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-spring-deployment
+  labels:
+    app: java-spring
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: java-spring
+  template:
+    metadata:
+      labels:
+        app: java-spring
+    spec:
+      containers:
+        - name: java-spring
+          image: vishvajitkanase/java-spring:latest
+          ports:
+            - containerPort: 8080
